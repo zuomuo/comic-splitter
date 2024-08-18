@@ -33,11 +33,17 @@ def process_image(image_path, output_path, tolerance):
     extension = os.path.splitext(image_path)[1]
 
     for idx, split_img in enumerate(split_images):
-        split_output_path = os.path.join(output_path, f"{base_name}_split_{idx + 1}{extension}")
+        split_output_path = os.path.join(output_path, f"{base_name}_sp_{idx + 1}{extension}")
         processed_img = Image.fromarray(split_img)
+        
+        # Convert image to RGB mode if it's not already
+        if processed_img.mode != 'RGB':
+            processed_img = processed_img.convert('RGB')
+        
         os.makedirs(os.path.dirname(split_output_path), exist_ok=True)
         processed_img.save(split_output_path)
         print(f"Processed and saved: {split_output_path}")
+
 
 def process_folder(input_folder, output_folder, tolerance):
     for root, _, files in os.walk(input_folder):
