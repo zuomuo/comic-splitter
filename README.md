@@ -22,6 +22,7 @@ pip install Pillow numpy
 * `-i` or `--input` : Path to the input folder containing images. ***Required.***
 * `-o` or `--output` : Path to the output folder where processed images will be saved. ***Required.***
 * `-t` or `--tolerance` : Tolerance level (default is 10). *Optional.*
+* `-m` or `--min-height` : Minimum height of split images to include (default: no limit). *Optional.*
 
 #### Example Usage
 ```
